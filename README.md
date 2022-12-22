@@ -14,7 +14,7 @@ This container image is built to run in any K8S platform, podman and docker runt
 
 This container image does not require special security permissions when deployed on Openshift.
 
-The container image is based on a RedHat 'ubi8/ubi' image and an intermediate image in which the Java runtime has been installed.
+This container image is based on a RedHat 'ubi8/ubi' image and an intermediate image in which the Java runtime has been installed.
 
 ## Deployemnt
 
