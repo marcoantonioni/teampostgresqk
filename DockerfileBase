@@ -1,0 +1,10 @@
+FROM registry.access.redhat.com/ubi8/ubi:latest
+
+#------------------------------
+USER root
+
+#------------------------------
+RUN dnf install -y java
+RUN dnf install -y unzip
+RUN dnf clean all
+
