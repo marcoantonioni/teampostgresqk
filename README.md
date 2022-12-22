@@ -10,6 +10,8 @@ https://teampostgresql.com
 
 http://cdn.webworks.dk/download/teampostgresql_multiplatform.zip
 
+Many thanks to https://github.com/steigr/docker-teampostgresql for its script on how to run the application.
+
 This container image is built to run in any K8S platform, podman and docker runtimes.
 
 This container image does not require special security permissions when deployed on Openshift.
