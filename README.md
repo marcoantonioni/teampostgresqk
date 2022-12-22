@@ -18,7 +18,7 @@ This container image is based on a RedHat 'ubi8/ubi' image and an intermediate i
 
 ## Deployment
 
-To execute the deployment you have to follow the following steps
+To execute the deployment use following steps
 
 1. Definition of environment variables for creating intermediate artifacts.
 ```
