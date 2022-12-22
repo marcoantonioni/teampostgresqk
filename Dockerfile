@@ -1,16 +1,7 @@
 FROM quay.io/marco_antonioni/teampostgres-base:latest
 
-#------------------------------
-# add user / group
-# ENV USER_NAME=marco
-# ENV USER_ID=1001
-# ENV GROUP_ID=1001
-# RUN groupadd -g ${GROUP_ID} ${USER_NAME}
-# RUN adduser -m -u ${USER_ID} -g ${USER_NAME} ${USER_NAME}
-
 ENV BASE_INST=/opt
 ENV INST_FOLDER=${BASE_INST}/teampostgresql
-# RUN mkdir -p ${INST_FOLDER}
 
 #------------------------------
 # add teampostgres
