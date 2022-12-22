@@ -16,7 +16,7 @@ This container image does not require special security permissions when deployed
 
 This container image is based on a RedHat 'ubi8/ubi' image and an intermediate image in which the Java runtime has been installed.
 
-## Deployemnt
+## Deployment
 
 To execute the deployment you have to follow the following steps
 
