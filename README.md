@@ -65,7 +65,7 @@ oc new-app --image=${TP_IMAGE} --name=${TP_NAME} --env-file=${TP_FILE_EV}
 oc expose deployment ${TP_NAME} --port=8082
 oc expose service ${TP_NAME} --name=route-${TP_NAME}
 
-URL=http://$(oc get route route-team-postgresql -o jsonpath='{.spec.host}')/teampostgresql/webapp
+URL=http://$(oc get route route-${TP_NAME} -o jsonpath='{.spec.host}')/teampostgresql/webapp
 echo "Browse at " ${URL}
 ```
 
