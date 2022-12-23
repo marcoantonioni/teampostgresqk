@@ -1,0 +1,32 @@
+#----------------------------
+# build
+podman build -t quay.io/${REPO_NAME}/teampostgres-base:v1 -f ./DockerfileBase
+podman build -t quay.io/${REPO_NAME}/teampostgres:v1 -f ./Dockerfile
+
+
+#----------------------------
+# run local
+podman run -it --rm --publish=8082:8082 \
+  --name=teampostgresql \
+  --env=TEAMPOSTGRESQL_ADMIN_PASSWORD=passw0rd \
+  --env=TEAMPOSTGRESQL_ADMIN_USER=admin \
+  --env=TEAMPOSTGRESQL_COOKIES_ENABLED="true" \
+  --env=TEAMPOSTGRESQL_DATA_DIRECTORY=/tmp \
+  --env=TEAMPOSTGRESQL_DEFAULT_DATABASENAME=postgres \
+  --env=TEAMPOSTGRESQL_DEFAULT_HOST=my-postgresql-1.cp4ba.svc.cluster.local \
+  --env=TEAMPOSTGRESQL_DEFAULT_PASSWORD=post01gres \
+  --env=TEAMPOSTGRESQL_DEFAULT_PORT="5432" \
+  --env=TEAMPOSTGRESQL_DEFAULT_SSL="false" \
+  --env=TEAMPOSTGRESQL_DEFAULT_USERNAME=postgres \
+  --env=TEAMPOSTGRESQL_HTTPS=DISABLED \
+  --env=TEAMPOSTGRESQL_PORT="8082" \
+  quay.io/${REPO_NAME}/teampostgres:v1
+
+
+#----------------------------
+# housekeeping
+podman ps --all | grep -v NAME | awk '{print $1}' | xargs podman kill
+podman ps --all | grep -v NAME | awk '{print $1}' | xargs podman rm --force
+podman container prune --force
+podman image ls | grep -v REPO | grep "<none>" | awk '{print $3}' | xargs podman image rm
+
